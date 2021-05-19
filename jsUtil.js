@@ -23,6 +23,8 @@ let DateUtil = new Object()
  * 某个月的天数
  */
 DateUtil.daysOfMonth = function (year, month) {
+    // 当天数为0 js自动处理为上一月的最后一天
+    // month从0开始，0:1月
     let date = new Date(year, month, 0)
     return date.getDate()
 }
@@ -96,6 +98,31 @@ DateUtil.parseDate = function (date) {
     obj.minute = minute
     obj.second = second
     return obj
+}
+
+/**
+ * 计算2个日期的间隔
+ * @return 单位ms
+ */
+DateUtil.diff = function (d1, d2) {
+    let time1 = d1.getTime()
+    let time2 = d2.getTime()
+    return Math.abs(time1 - time2)
+}
+
+/**
+ * date是周几
+ * 0:周日，1-6:周一-周六
+ */
+DateUtil.dayOfWeek = function (date) {
+    return date.getDay()
+}
+
+/**
+ * 今天是周几
+ */
+DateUtil.todayOfWeek = function () {
+    return DateUtil.dayOfWeek(DateUtil.currentDate())
 }
 
 

@@ -10,6 +10,7 @@
 </html>
 <script src="jsUtil.js"></script>
 <script>
+    let d0 = new Date()
     console.log("2021年2月的天数=", DateUtil.daysOfMonth("2021", "2"));
     console.log("当前时间=", DateUtil.currentDate());
     console.log("当前年=", DateUtil.currentYear());
@@ -19,9 +20,9 @@
     console.log("当前分=", DateUtil.currentMinute());
     console.log("当前秒=", DateUtil.currentSecond());
 
-    console.log("20200125", DateUtil.parseDate(new Date(2020,1,25)));
+    console.log("20200125", DateUtil.parseDate(new Date(2020, 1, 25)));
 
+    console.log(DateUtil.diff(new Date(), d0))
+    console.log("今天是周几", DateUtil.dayOfWeek(new Date()))
     // tmp test
-    console.log(new Date().getTime()-30*1000);
-    console.log(new Date().getTime()-60*1000);
 </script>
